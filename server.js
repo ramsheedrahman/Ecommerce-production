@@ -20,7 +20,12 @@ dotenv.config();
 connectDB()
 //middelwares
 app.use(express.static(path.join(__dirname, 'client','build')));
-app.use(cors());
+// Enable CORS for specific origins
+app.use(cors({
+  origin: 'http://allowed-origin.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 app.use(express.json({limit:'10mb'}));
 app.use(morgan("dev"));
 //routes
