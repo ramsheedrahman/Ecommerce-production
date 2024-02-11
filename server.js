@@ -19,7 +19,7 @@ const app=express()
 dotenv.config();
 connectDB()
 //middelwares
-app.use(express.static(path.join(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, 'client','build')));
 app.use(cors());
 app.use(express.json({limit:'10mb'}));
 app.use(morgan("dev"));
@@ -29,7 +29,7 @@ app.use("/category",categoryRoute);
 app.use("/product",productsRoute);
 
 app.use('*',function(req,res){
-  res.sendFile(path.join(__dirname, './client/build/index.html'))
+  res.sendFile(path.join(__dirname, 'client','build','index.html'))
 })
 
 const PORT = process.env.PORT || 8000;
