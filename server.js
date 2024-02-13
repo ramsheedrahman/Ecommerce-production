@@ -21,11 +21,7 @@ connectDB()
 //middelwares
 app.use(express.static(path.join(__dirname, 'client','build')));
 // Enable CORS for specific origins
-app.use(cors({
-  origin: 'http://allowed-origin.com',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
+app.use(cors();
 app.use(express.json({limit:'10mb'}));
 app.use(morgan("dev"));
 //routes
